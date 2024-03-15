@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.examen_iage.HelloController">
+  <children>
+    <Text layoutX="213.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXAMEN IAGE" underline="true" wrappingWidth="195.13671875">
+      <font>
+        <Font size="20.0" />
+      </font>
+    </Text>
+    <Label layoutX="37.0" layoutY="69.0" text="Nom animal">
+      <font>
+        <Font size="14.0" />
+      </font>
+    </Label>
+    <Label layoutX="37.0" layoutY="109.0" text="Age">
+      <font>
+        <Font size="14.0" />
+      </font>
+    </Label>
+    <Label fx:id="labelType" layoutX="37.0" layoutY="148.0" text="Type">
+      <font>
+        <Font size="14.0" />
+      </font>
+    </Label>
+    <TextField fx:id="cnom" layoutX="156.0" layoutY="67.0">
+         <effect>
+            <Lighting diffuseConstant="1.07">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></TextField>
+    <TextField fx:id="cage" layoutX="156.0" layoutY="106.0">
+         <effect>
+            <Lighting diffuseConstant="1.22">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></TextField>
+    <Button layoutX="365.0" layoutY="66.0" mnemonicParsing="false" onAction="#add" text="Ajouter">
+         <effect>
+            <Lighting diffuseConstant="1.59" specularConstant="1.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.040740739554166794" green="1.0" blue="0.05672839656472206" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></Button>
+    <Button layoutX="363.0" layoutY="106.0" mnemonicParsing="false" onAction="#update" text="Modifier">
+         <effect>
+            <Lighting diffuseConstant="1.39">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9239506125450134" green="1.0" blue="0.4296296238899231" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></Button>
+    <Button layoutX="356.0" layoutY="145.0" mnemonicParsing="false" onAction="#delete" text="Supprimer">
+         <effect>
+            <Lighting diffuseConstant="1.39">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="1.0" green="0.07777778059244156" blue="0.07777778059244156" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></Button>
+    <Button layoutX="366.0" layoutY="192.0" mnemonicParsing="false" onAction="#clear" text="Effacer">
+         <effect>
+            <Lighting diffuseConstant="1.81">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9578947424888611" green="0.45411306619644165" blue="0.45411306619644165" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></Button>
+    <TableView fx:id="tableau" layoutX="4.0" layoutY="250.0" onMouseClicked="#charge" prefHeight="200.0" prefWidth="622.0">
+      <columns>
+        <TableColumn fx:id="tId" prefWidth="129.0" text="Id" />
+        <TableColumn fx:id="tNom" prefWidth="96.0" text="Nom" />
+        <TableColumn fx:id="tAge" minWidth="0.0" prefWidth="147.0" text="Age" />
+        <TableColumn fx:id="tType" minWidth="0.0" prefWidth="136.0" text="Type" />
+            <TableColumn fx:id="tNombre" prefWidth="75.0" text="Nombre" />
+      </columns>
+    </TableView>
+    <TextField fx:id="cid" layoutX="53.0" layoutY="29.0" visible="false" />
+    <TextField fx:id="csearch" layoutX="563.0" layoutY="67.0" onKeyPressed="#filter" />
+      <Label layoutX="512.0" layoutY="70.0" text="Mot">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="tP" layoutX="37.0" layoutY="183.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cnombre" layoutX="150.0" layoutY="189.0">
+         <effect>
+            <Lighting diffuseConstant="1.2">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></TextField>
+      <ComboBox fx:id="ctype" layoutX="149.0" layoutY="145.0" onAction="#select" prefHeight="24.0" prefWidth="179.0" />
+  </children>
+</AnchorPane>
